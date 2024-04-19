@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const cookieParser = require("cookie-parser");
 
 const app = express();
-const port = 3177;
+const port = process.env.PORT || 3177;
 
 dotenv.config();
 
@@ -31,5 +31,5 @@ app.use("/bank", require("./routers/bankRouter"));
 app.use("/camps", require("./routers/campRouter"));
 
 app.listen(port, () =>
-	console.log(`Server running at http://localhost:${port}`)
+	console.log(`Server running ${port}`)
 );
